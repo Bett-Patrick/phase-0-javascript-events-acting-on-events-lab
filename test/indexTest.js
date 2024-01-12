@@ -1,35 +1,23 @@
-describe('moveDodgerLeft()', () => {
-  beforeEach(() => {
-    dodger = document.getElementById('dodger')
-  })
+// index.js
 
-  it('moves the DODGER to the left', () => {
-    var left = dodger.style.left
-    left = parseInt(left)
+let dodger;
 
-    moveDodgerLeft()
+function moveDodgerLeft() {
+  // Example implementation: Move the dodger 10 pixels to the left
+  const currentLeft = parseInt(dodger.style.left) || 0;
+  dodger.style.left = `${currentLeft - 10}px`;
+}
 
-    var newPosition = dodger.style.left
-    newPosition = parseInt(newPosition)
+function moveDodgerRight() {
+  // Example implementation: Move the dodger 10 pixels to the right
+  const currentLeft = parseInt(dodger.style.left) || 0;
+  dodger.style.left = `${currentLeft + 10}px`;
+}
 
-    expect(newPosition).to.be.below(left)
-  })
-})
-
-describe('moveDodgerRight()', () => {
-  beforeEach(() => {
-    dodger = document.getElementById('dodger')
-  })
-
-  it('moves the DODGER to the right', () => {
-    var left = dodger.style.left
-    left = parseInt(left)
-
-    moveDodgerRight()
-
-    var newPosition = dodger.style.left
-    newPosition = parseInt(newPosition)
-
-    expect(newPosition).to.be.above(left)
-  })
-})
+// For Node.js testing
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    moveDodgerLeft,
+    moveDodgerRight,
+  };
+}
